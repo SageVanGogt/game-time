@@ -10,7 +10,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "brace-style": "error",
+    "brace-style": "error",e
     "comma-spacing": [
       "warn", {
         "before": false,
