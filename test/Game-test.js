@@ -11,10 +11,13 @@ describe ('Game', function() {
         assert.isObject(game);
     })
 
-    it.skip('it should have a canvas', function(){
-        var game = new Game("ctx", "canvas");
-        assert.equal(game.ctx, "ctx");
-        assert.equal(game.canvas, "canvas");
-        // assert.equal(game.gamePieces, [])
+    it('game should havea  size', function() {
+        var game = new Game({width: 500, height: 700});
+        assert.deepEqual(game.gameSize, {width: 500, height: 700});
+    })
+
+    it('it should have game pieces', function() {
+        var game = new Game({width: 500, height: 700});
+        assert.equal(game.gamePieces.length, 1)
     })
 });
