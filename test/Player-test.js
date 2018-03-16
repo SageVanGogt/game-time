@@ -47,5 +47,29 @@ describe ('Player', function() {
         assert.deepEqual(player.speed,{ x: 0, y: -7 });
     });
 
-    
+    it('should start jumping when acceleration is intialized', function() {
+        var player = new Player();
+
+        player.jump();
+        
+        assert.equal(player.gravity, 0 );
+        assert.deepEqual(player.speed, { x: 0, y: 0 });
+
+        player.accelerate(-7, .2);
+
+        player.jump();
+
+        assert.equal(player.gravity, .2);
+        assert.equal(player.gravitySpeed, .2);
+        assert.deepEqual(player.speed,{ x: 0, y: -7 });
+    });
+
+    it('should bounce on a hard surface', function() {
+        var player = new Player(15, 686, 15, 15);
+
+        player.floor( { height:700 } );
+
+        assert.equal(player.gravitySpeed, 0)
+        
+    });
 });
