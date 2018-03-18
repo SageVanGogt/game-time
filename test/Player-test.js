@@ -24,6 +24,12 @@ describe ('Player', function() {
         assert.deepEqual(player.size, { w: 5, h: 5 } );
     });
 
+    it('should have a center', function() {
+        var player = new Player(5, 5, 5, 5);
+
+        assert.deepEqual(player.center, {x: 7.5, y: 7.5})
+    })
+
     it('should have a speed', function() {
         var player = new Player();
 
