@@ -1,5 +1,5 @@
 #screen {
-    background-color: lightgrey;
+    background-image: url('./../images/bricks.jpg');
     display: block;
     margin: auto;
 }
