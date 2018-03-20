@@ -1,4 +1,6 @@
 const assert = require('chai').assert;
+const expect = require('chai').expect;
+const locus = require('locus');
 const Game = require('./../lib/Game.js');
 const Player = require('./../lib/Player.js');
 const Platform = require('./../lib/Platform.js');
@@ -38,15 +40,51 @@ describe ('Game', function() {
         assert.notEqual(game.platforms[2].position.x, game.platforms[3].position.x);
     })
 
-    it('should set player gravitySpeed to 0 when collision occurs', function() {
+    it('should run hit method if player collides with platform', function() {
         var game = new Game({width: 500, height: 700});
-        game.player = new Player(15, 15, 15, 15)
+        game.player = new Player(0, 0, 16, 16)
         game.platforms = [new Platform(15, 15, 15, 15)]
 
+        game.player.gravitySpeed = 10;
+        
         game.collisionDetection()
-
+        
         assert.equal(game.player.gravitySpeed, 0);
     })
+
+    it('should increment score when hit function occurs', function() {
+        var game = new Game({width: 500, height: 700});
+        game.player = new Player(0, 0, 16, 16)
+        game.platforms = [new Platform(15, 15, 15, 15)]
+
+        game.score = 0;
+
+        game.hit();
+        
+        assert.equal(game.score, 1);
+    })
+
+    it('should reset the velocity of the platforms when hit function occurs', function() {
+        var game = new Game({width: 500, height: 700});
+        game.player = new Player(0, 0, 16, 16)
+        game.platforms = [new Platform(15, 15, 15, 15)]
+
+        game.platforms.gravitySpeed = .3;
+        game.platforms.speed = 6;
+        game.platforms.gravitySpeed = 10;
+
+        game.hit();
+
+        game.platforms.gravitySpeed = 0;
+        game.platforms.speed = 0;
+        game.platforms.gravitySpeed = 0;
+        
+        assert.equal(game.platforms.speed, 0)
+    });
+
+    
+
+
     
 
 });
