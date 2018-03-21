@@ -1,3 +1,50 @@
+body {
+    top: 0;
+    margin: 0;
+}
+
+.game-screen {
+    display: flex;
+    width: 100vw;
+    background-image: url('../images/8bit-backdrop.png');
+    background-size: 100vw
+}
+
+.player-article,
+.player-score {
+    width: calc(50% - 400px);
+    width: calc(50% - 400px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Press Start 2P', cursive;
+    color: #c02800;
+    font-size: 2vw;
+}
+
+.player-score h2 {
+    margin-top: 0;
+    font-size: 6vw;
+}
+
+#user-name {
+    width: 200px;
+    height: 30px;
+    background-color: #c02800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#scoreboard {
+    width: 200px;
+    height: 300px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #c02800;
+}
+
 #screen {
     background-image: url('./../images/bricks.jpg');
     display: block;
