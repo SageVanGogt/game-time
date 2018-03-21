@@ -18,12 +18,31 @@ body {
     align-items: center;
     flex-direction: column;
     font-family: 'Press Start 2P', cursive;
-    color: white;
+    color: #c02800;
+    font-size: 2vw;
 }
 
 .player-score h2 {
     margin-top: 0;
-    font-size: 5vw;
+    font-size: 6vw;
+}
+
+#user-name {
+    width: 200px;
+    height: 30px;
+    background-color: #c02800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#scoreboard {
+    width: 200px;
+    height: 300px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #c02800;
 }
 
 #screen {
