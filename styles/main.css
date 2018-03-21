@@ -1,3 +1,31 @@
+body {
+    top: 0;
+    margin: 0;
+}
+
+.game-screen {
+    display: flex;
+    width: 100vw;
+    background-image: url('../images/8bit-backdrop.png');
+    background-size: 100vw
+}
+
+.player-article,
+.player-score {
+    width: calc(50% - 400px);
+    width: calc(50% - 400px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+
+.player-score h2 {
+    margin-top: 0;
+    font-size: 5vw;
+}
+
 #screen {
     background-image: url('./../images/bricks.jpg');
     display: block;
