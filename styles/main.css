@@ -38,6 +38,7 @@ body {
 }
 
 #scoreboard {
+    display: block;
     width: 200px;
     height: 300px;
     margin-top: 10px;
@@ -50,3 +51,15 @@ body {
     display: block;
     margin: auto;
 }
+
+#past-scores {
+    /* display: flex;
+    flex-direction: column; */
+    color: black; 
+    font-size: 1rem;
+}
+
+li {
+    text-decoration: none;
+}
+
