@@ -82,21 +82,19 @@ describe ('Player', function() {
 
     it('should be able to move left', function() {
         var player = new Player(15, 15, 15, 15);
-
-        assert.equal(player.position.x, 15);
+        player.speed.x = -20;
 
         player.moveLeft();
 
-        assert.equal(player.position.x, 12);
+        assert.equal(player.speed.x, -25)
     })
 
     it('should be able to move right', function() {
         var player = new Player(15, 15, 15, 15);
-
-        assert.equal(player.position.x, 15);
-
+        player.speed.x = 15;
+        
         player.moveRight();
 
-        assert.equal(player.position.x, 18);
+        assert.equal(player.speed.x, 20);
     })
 });
