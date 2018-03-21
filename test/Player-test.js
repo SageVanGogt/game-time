@@ -12,7 +12,7 @@ describe ('Player', function() {
         assert.isObject(player);
     });
 
-    it('should have a poition', function() {
+    it('should have a position', function() {
         var player = new Player(5, 5, 5, 5);
 
         assert.deepEqual(player.position, { x: 5, y: 5 } );
@@ -23,12 +23,6 @@ describe ('Player', function() {
 
         assert.deepEqual(player.size, { w: 5, h: 5 } );
     });
-
-    it('should have a center', function() {
-        var player = new Player(5, 5, 5, 5);
-
-        assert.deepEqual(player.center, {x: 7.5, y: 7.5})
-    })
 
     it('should have a speed', function() {
         var player = new Player();
@@ -63,14 +57,14 @@ describe ('Player', function() {
     it('should start jumping when acceleration is intialized', function() {
         var player = new Player();
 
-        player.jump();
+        player.movement();
         
         assert.equal(player.gravity, 0 );
         assert.deepEqual(player.speed, { x: 0, y: 0 });
 
         player.accelerate(-7, .2);
 
-        player.jump();
+        player.movement();
 
         assert.equal(player.gravity, .2);
         assert.equal(player.gravitySpeed, .2);
@@ -80,7 +74,7 @@ describe ('Player', function() {
     it('should lose downward velocity when hitting the floor', function() {
         var player = new Player(15, 686, 15, 15);
 
-        player.floor( { height:700 } );
+        player.floorHit( { height:700 } );
 
         assert.equal(player.gravitySpeed, 0)
         
