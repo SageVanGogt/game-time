@@ -27,14 +27,27 @@ body {
     font-size: 6vw;
 }
 
+#form-name {
+    display: flex;
+}
+
 #user-name {
-    width: 200px;
+    width: 150px;
     height: 30px;
+    margin: 0;
+    padding: 0;
     background-color: #c02800;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 20px;
+}
+
+input[type=submit] {
+    width: 50px;
+    height: 30px;
+    margin: 0;
+    padding: 10px 0;
 }
 
 #scoreboard {
