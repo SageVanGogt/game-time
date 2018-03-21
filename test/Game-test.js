@@ -102,14 +102,33 @@ describe ('Game', function() {
     it('should push a new platform into the platform array', function() {
         var game = new Game({width: 500, height: 700});
         game.player = new Player(0, 0, 16, 16)
-        game.platforms = [new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 100, 15, 15)]
+        game.platforms = [new Platform(15, 90, 15, 15)]
         
-        assert.equal(game.platforms.length, 8)
+        assert.equal(game.platforms.length, 1)
         game.hit();
-        
-        assert.equal(game.platforms.length, 9);
+        assert.equal(game.platforms.length, 2);
     })
 
+    it('should remove a platform if the array is longer than 8', function() {
+        var game = new Game({width: 500, height: 700});
+        game.player = new Player(0, 0, 16, 16)
+        game.platforms = [new Platform(15, 90, 15, 15), {}, {}, {}, {}, {}, {}, {}, {}]
+        
+        assert.equal(game.platforms.length, 9)
+        game.removeExtraPlatform();
+        assert.equal(game.platforms.length, 8);
+    })
+
+    it('should increase the difficulty when the score increases', function() {
+        var game = new Game({width: 500, height: 700});
+        game.score = 41;
+
+        assert.deepEqual(game.difficultyLevel, {range: 300, center: 150});
+
+        game.updateDifficulty();
+
+        assert.deepEqual(game.difficultyLevel, {range: 400, center: 200})
+    })
 
     
 
