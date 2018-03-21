@@ -1,6 +1,5 @@
 const assert = require('chai').assert;
-const expect = require('chai').expect;
-const locus = require('locus');
+const expect = require('chai').expect; //find location and gitignor
 const Game = require('./../lib/Game.js');
 const Player = require('./../lib/Player.js');
 const Platform = require('./../lib/Platform.js');
@@ -69,20 +68,47 @@ describe ('Game', function() {
         game.player = new Player(0, 0, 16, 16)
         game.platforms = [new Platform(15, 15, 15, 15)]
 
-        game.platforms.gravitySpeed = .3;
+        game.platforms.gravity = .3;
         game.platforms.speed = 6;
         game.platforms.gravitySpeed = 10;
 
         game.hit();
 
-        game.platforms.gravitySpeed = 0;
+        game.platforms.gravity = 0;
         game.platforms.speed = 0;
         game.platforms.gravitySpeed = 0;
         
         assert.equal(game.platforms.speed, 0)
     });
 
-    
+    it('should increase the platform velocity after it stops it', function() {
+        var game = new Game({width: 500, height: 700});
+        game.player = new Player(0, 0, 16, 16)
+        game.platforms = [new Platform(15, 15, 15, 15)]
+        
+        game.platforms.gravity = 0;
+        game.platforms.speed = 0;
+        game.platforms.gravitySpeed = 0;
+
+        game.hit();
+
+        game.platforms.gravity = -0.1;
+        game.platforms.speed = 6;
+        game.platforms.gravitySpeed = -0.1;
+        
+        assert.equal(game.platforms.speed, 6)
+    });
+
+    it('should push a new platform into the platform array', function() {
+        var game = new Game({width: 500, height: 700});
+        game.player = new Player(0, 0, 16, 16)
+        game.platforms = [new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 15, 15, 15), new Platform(15, 100, 15, 15)]
+        
+        assert.equal(game.platforms.length, 8)
+        game.hit();
+        
+        assert.equal(game.platforms.length, 9);
+    })
 
 
     
