@@ -57,7 +57,7 @@ describe ('Player', function() {
     it('should start jumping when acceleration is intialized', function() {
         var player = new Player();
 
-        player.movement();
+        player.movement(); // 60-63 seperate test
         
         assert.equal(player.gravity, 0 );
         assert.deepEqual(player.speed, { x: 0, y: 0 });

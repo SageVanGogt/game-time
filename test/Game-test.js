@@ -34,11 +34,6 @@ describe ('Game', function() {
         assert.notEqual(game.platforms[2].position.x, game.platforms[3].position.x);
     })
 
-    it('should randomize platform position', function() {
-        var game = new Game({width: 500, height: 700});
-        assert.notEqual(game.platforms[2].position.x, game.platforms[3].position.x);
-    })
-
     it('should run hit method if player collides with platform', function() {
         var game = new Game({width: 500, height: 700});
         game.player = new Player(0, 0, 16, 16)
