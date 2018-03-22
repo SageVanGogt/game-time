@@ -41,9 +41,9 @@ describe ('Game', function() {
 
         platform.stop();
 
-        platform.speed = 0;
-        platform.gravity = 0;
-        platform.gravitySpeed = 0;
+        assert.equal(platform.speed, 0);
+        assert.equal(platform.gravity, 0);
+        assert.equal(platform.gravitySpeed, 0);
     });
 
     it('should have a size', function() {
